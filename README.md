@@ -81,9 +81,9 @@ Además, cada tarjeta de país permite navegar a una vista de detalle gracias al
 
 Solo he encontrado un error:
 
-- **Pantalla en blanco al cargar la aplicación**  
+- **Dificultad al mostrar las banderas de los países**  
   *Problema:* La API devuelve las banderas en dos formatos diferentes (png y svg). Sin embargo, no siempre está claro si todos los países disponen de ambos formatos o si alguno de ellos puede estar vacío o no definido.
-   
+
   *Solución:* Se comprobó la existencia del formato antes de mostrar la imagen. En caso de que uno de los formatos no estuviera disponible, se utilizaba el otro formato como alternativa. De esta forma se evita que la aplicación intente mostrar una imagen inexistente y se garantiza que siempre se pueda visualizar la bandera del país cuando esté disponible.
 
 
