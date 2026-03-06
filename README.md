@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# API Paises
 
-## Getting Started
+Aplicación web desarrollada con Next.js, React y TypeScript que consume una API pública de países para mostrar un listado de países y permitir la búsqueda por nombre.
+La aplicación está estructurada por componentes y utiliza una ruta dinámica para acceder al detalle de cada país de forma individual.
 
-First, run the development server:
+## Como ejecutar el código
 
+### 1️⃣ Clonar el repositorio
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tu-nombre-usuraio/nombre-repositorio.git
+cd nombre-repositorio
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Instalar dependencias
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3️⃣Ejecutar el proyecto en local
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abrir el navegador en:
+```bash
+http://localhost:3000
+```
 
-## Learn More
+## 📁 Archivos que contiene el código
 
-To learn more about Next.js, take a look at the following resources:
+A continuación se describen los archivos que han sido creados o modificados durante el desarrollo de la práctica, junto con su función dentro de la página web.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔹 `src/app/page.tsx`
+Página principal de la aplicación.
+Aquí se muestra el buscador, el botón de búsqueda y el listado de países obtenidos desde la API.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🔹 `src/app/component/country.tsx`
+Componente encargado de representar una tarjeta individual de cada país.
+Muestra información básica como el nombre, la bandera y otros datos principales.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+🔹 src/app/country/[name]/page.tsx
+Página de detalle del país mediante una ruta dinámica.
+Cuando el usuario pulsa sobre un país, accede a una URL dinámica con su nombre y puede visualizar información más detallada de ese país.
+🔹 src/app/lib/axios.ts
+Archivo de configuración de Axios para centralizar la conexión con la API.
+🔹 src/app/lib/pais.ts
+Archivo que contiene las funciones encargadas de realizar las peticiones a la API de países, tanto para obtener el listado general como para buscar un país concreto por nombre.
+🔹 src/type/pais.ts
+Definición del tipo Country con la estructura de datos que utiliza la aplicación.
+🔹 src/type/index.ts
+Archivo de reexportación de tipos para facilitar las importaciones.
+🔹 src/app/globals.css
+Archivo de estilos globales de la aplicación.
+🔹 src/app/component/styles.css
+Archivo de estilos del componente de tarjeta de país.
+🔹 src/app/country/[name]/styles.css
+Archivo de estilos de la página de detalle del país.
+
+## Funcionamiento de la aplicación
+La aplicación realiza una petición a una API pública de países para mostrar la información en pantalla.
+En la página principal, el usuario puede escribir el nombre de un país en el buscador y pulsar el botón de búsqueda para filtrar o localizar el país deseado.
+Además, cada tarjeta de país permite navegar a una vista de detalle gracias al uso de una ruta dinámica de Next.js, lo que permite generar una página específica para cada país de manera individual.
+
+
+## ⚠️ Problemas encontrados y soluciones
+
+Solo he encontrado un error:
+
+- **Pantalla en blanco al cargar la aplicación**  
+  *Problema:* configuración incorrecta de la variable de entorno `VITE_API_URL`.  
+  *Solución:* revisar el archivo `.env` y reiniciar el servidor de desarrollo tras el cambio.
+
+- **Las tarjetas no mantenían el mismo tamaño**
+  *Causa:* los textos al tener diferente longitud provocaban alturas distintas.
+  *Solución:* establecer una altura mínima y máxima y usar flex para distribuir el contenido.
+

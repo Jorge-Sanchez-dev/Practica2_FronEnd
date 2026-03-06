@@ -1,0 +1,40 @@
+.country-container {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.country-container h1 {
+  color: aliceblue;
+}
+
+.back-button {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.back-button button {
+  padding: 8px 14px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-button button:hover {
+  background-color: #1d4ed8;
+}
+
+.country-flag {
+  width: 300px;
+  margin: 20px 0;
+  border-radius: 6px;
+}
+
+.country-info p {
+  color: aliceblue;
+  font-size: 18px;
+  margin: 6px 0;
+}
